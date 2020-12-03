@@ -1,0 +1,1 @@
+## Verify the truth table of RS, JK, T and D flip-flops using NAND & NOR gates
