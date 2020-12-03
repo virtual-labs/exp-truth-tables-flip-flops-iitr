@@ -1,1 +1,1 @@
-### Aim of the experiment
+#### To verify the truth table and timing diagram of RS, JK, T and D flip-flops by using NAND & NOR gates ICs and analyse the circuit of RS, JK, T and D flip-flops with the help of LEDs display.
