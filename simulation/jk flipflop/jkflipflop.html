@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="EMF Generation">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <title>J K FLIP FLOP</title>
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <script src="graph.ob.js"></script>
+  <script src="graph_line_use.ob.js"></script>
+  <script src="graph_multiline_use.ob.js"></script>
+
+  <style type="text/css">
+  body 
+  {
+    background-color: #ECEFF4;
+
+            -moz-transform: scale(0.85, 0.85); /* Moz-browsers */
+    zoom: 0.85; /* Other non-webkit browsers */
+    zoom: 85%; /* Webkit browsers */
+        
+  }
+
+  h1
+  {
+    color: maroon;
+  } 
+  #wrapper
+  {
+    width:100%;
+  }
+ 
+  .dropbtn
+  {
+    background-color: #3385ff;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  .dropbtn:hover, .dropbtn:focus
+  {
+    background-color: blue;
+  }
+  .dropdown
+  {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown-content
+  {
+    display: none;
+    position: relative;
+    background-color: lightblue ;
+    min-width: 750px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dropdown-content a 
+  {
+    color: navy;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown a:hover 
+  {
+    background-color: mistyrose;
+  }
+  .show 
+  {
+    display:block;
+  }
+  #kit
+  {
+    background-color: ;
+    height: 500px;
+    top: 200px;
+    left: 100px;
+    margin: 41px;
+
+  }
+
+  .v_img {
+  z-index: 2;
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  left: 45%;
+  bottom: 250px;
+  transition: transform 2s linear;
+  transform-origin: 29% 70%;
+  transform-style: preserve-3D;
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+  </style>
+  </head>
+  <body outline:black;>
+  </br>
+  <div class="dropdown" style="left:40px; top:-19px;">
+    <button onclick="dropdown()" class="dropbtn">INSTRUCTIONS
+    </button>
+     <div id="myDropdown" class="dropdown-content">
+      <a href="#home">  
+                    <b>1) Connect the Supply(+5V) to the IC.(on Power Supply Switch)</b><br/><br/>
+                    <b>2) Press the switches for inputs "J","K"</b><br/><br/>
+                    <b>The switch in ON state is <img src="switchon.png" width="50" height="30" > and the switch in OFF state is <img src="switchoff.png" width="50" height="30" > .</b><br/><br/>
+                    <b>3)After J and K press on CLOCK switch.<br/>
+                      The Clock switch in ON state is <img src="push2.png" width="50" height="50" > and the Clock switch in OFF state is <img src="push1.png" width="50" height="50" > .</b><br/><br/><br/>
+                    <b>4) Click "Add" to obtain the truth table and corresponding graph for different input</b><br/><br/>
+                    <b>5) Repeat Steps 2,3,4 for further inputs.</b><br/><br/>
+                    <b>6)After obtainig truth table Click "Print".</b><br/><br/>
+      </a>
+    </div>
+</div>
+<div id="wrapper" style="position:absolute; border: 2px solid #3385ff; top:69px;width:1300px;height:1100px;left:20px">
+  <div style="position:absolute; font-size:13px;background-color: #3385ff;top:0px;left:0px;width:410px; height:40px;font-weight: bold;">
+    <p style="text-align:center; color:white;font-family: Verdana"> 
+      <b>Experiment to perform logic of JK FLIP FLOP on kit</b>
+    </p>
+  </div>
+  <div id="kit" style="left:50px;top:200px;">
+  <form id="myForm">
+
+   <div style="position:absolute;left:30px;top:360px;" >
+    <table width="0%" border=0>
+     <tr>
+      <td>
+        <p style="color:blue;font-size: 11px;" align="center">J</p>
+          <img id="A" onclick="changeImage()" src="switchoff.png" width="70" height="40">
+    </div>
+      </td>
+    </tr>
+      <td>
+        <p style="color:blue;font-size: 11px;" align="center">K</p>
+
+        <img id="B" onclick="changeImage1()" src="switchoff.png" width="70" height="40">
+          
+</td>
+<div style="position:absolute;left:30px;top:360px;" >
+    <table width="0%" border=0>
+     <tr>
+      <td>
+        <p style="color:blue;font-size: 11px;" align="center">CLK</p>
+          <img id="p" onclick="changeImage4()" src="push1.png" width="40" height="40">
+    </div>
+       </tr>
+     </table>
+   </div>
+
+
+   </br></br></br></br></br></br></br></br></br></br></br></br>
+   <div id="tblwrap" style="position:absolute; border: 2px solid #3385ff; top:600px;width:500px;height:400px;left:105px">
+                <div style="position:absolute;font-size:16px;background-color:#3385ff;top:0px;left:0px; width:500px;height:50px;font-weight: bold;"><p style="color:white"> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TRUTH TABLE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style=" background: #27d447 !important;height:30px; width:85px;" id = "button" type = "button" value = "PRINT" onclick="print()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style=" background: #27d447 !important;height:30px; width:85px;" id = "button" type = "button" value = "Add" onclick="add()"></p>
+                </div>
+                <div id="table" style="background-color: #ECEFF4;; position:absolute; top:50px;width:500px;height:250px;left:0px; overflow-y: auto;">
+                    <table id="mytable" width="500" border="1" style="text-align:center" >
+                        <tr>
+                            <th width="25">Serial No.</th>
+                            <th width="25">clock</th>
+                            <th width="25">J</th>
+                            <th width="25">K</th>
+                            <th width="25">Q(n-1)</th>
+                            <th width="25">Q&#773;(n-1)</th>
+                            <th width="25">Q</th>
+                            <th width="25">Q&#773;</th>
+                            <th width="25">Remark</th>
+                          </tr>
+                      </table>
+                    </form>
+                </div>
+    </div>
+  
+       </tr>
+     </table>
+
+<div id="tblwrap" style="position:absolute; border: 2px solid #3385ff; top:600px;width:558px;height:400px;left:705px">
+                <div style="position:absolute;font-size:16px;background-color:#3385ff;top:0px;left:0px; width:558px;height:50px;font-weight: bold;"><p style="color:white"> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLOCK DIAGRAM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                </div>
+                <div id="table" style="background-color: #ECEFF4;; position:absolute; top:50px;width:500px;height:250px;left:0px; overflow-y: auto;">
+                    </form>
+                </div>
+    </div>
+  
+       </tr>
+     </table>
+<div style="position:absolute;font-size:16px;background-color:#3385ff;top:650px;left:707px; width:56px;height:354px;font-weight: bold;"><p style="color:white"> 
+                 </p>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!--J-->
+<img style="position: absolute;left: 100px;top:415px;"id="myImage1" src="redn.jpg" style="width:5px" width="250" height="2">
+<img style="position: absolute;left: 348px;top:313px;"id="myImage1" src="redn.jpg" style="width:5px" width="2" height="103">
+
+<!--K-->
+<img style="position: absolute;left: 100px;top:499px;"id="myImage1" src="redn.jpg" style="width:5px" width="366" height="2">
+<img style="position: absolute;left: 465px;top:318px;"id="myImage1" src="redn.jpg" style="width:5px" width="2" height="183">
+
+<!--CLK-->
+<img style="position: absolute;left: 73px;top:579px;"id="myImage1" src="redn.jpg" style="width:5px" width="429" height="2">
+<img style="position: absolute;left: 387px;top:315px;"id="myImage1" src="redn.jpg" style="width:5px" width="2" height="266">
+<img style="position: absolute;left: 502px;top:315px;"id="myImage1" src="redn.jpg" style="width:5px" width="2" height="266">
+
+<!--Connection-->
+<img style="position: absolute;left: 389px;top:78px;"id="myImage1" src="redn.jpg" style="width:5px" width="3" height="50">
+<img style="position: absolute;left: 389px;top:78px;"id="myImage1" src="redn.jpg" style="width:5px" width="300" height="3">
+<img style="position: absolute;left: 686px;top:78px;"id="myImage1" src="redn.jpg" style="width:5px" width="3" height="266">
+<img style="position: absolute;left: 686px;top:342px;"id="myImage1" src="redn.jpg" style="width:5px" width="150" height="3">
+<img style="position: absolute;left: 835px;top:315px;"id="myImage1" src="redn.jpg" style="width:5px" width="3" height="130">
+
+<img style="position: absolute;left: 427px;top:57px;"id="myImage1" src="redn.jpg" style="width:5px" width="3" height="70">
+<img style="position: absolute;left: 427px;top:57px;"id="myImage1" src="redn.jpg" style="width:5px" width="285" height="3">
+<img style="position: absolute;left: 709px;top:58px;"id="myImage1" src="redn.jpg" style="width:5px" width="3" height="266">
+<img style="position: absolute;left: 710px;top:322px;"id="myImage1" src="redn.jpg" style="width:5px" width="60" height="3">
+<img style="position: absolute;left: 770px;top:315px;"id="myImage1" src="redn.jpg" style="width:5px" width="3" height="10">
+ 
+<img style="position: absolute;left: 940px;top:315px;"id="myImage1" src="redn.jpg" style="width:5px" width="3" height="130">
+<img style="position: absolute;left: 800px;top:315px;"id="myImage1" src="redn.jpg" style="width:5px" width="3" height="60">
+<img style="position: absolute;left: 800px;top:372px;"id="myImage1" src="redn.jpg" style="width:5px" width="140" height="3">
+
+<img style="position: absolute;left: 430px;top:390px;"id="myImage1" src="redn.jpg" style="width:5px" width="511" height="3">
+<img style="position: absolute;left: 427px;top:316px;"id="myImage1" src="redn.jpg" style="width:5px" width="3" height="77">
+
+<img style="position: absolute;left: 550px;top:360px;"id="myImage1" src="redn.jpg" style="width:5px" width="325" height="3">
+<img style="position: absolute;left: 547px;top:316px;"id="myImage1" src="redn.jpg" style="width:5px" width="3" height="48">
+<img style="position: absolute;left: 872px;top:316px;"id="myImage1" src="redn.jpg" style="width:5px" width="3" height="47">
+
+<img style="position: absolute;left: 904px;top:315px;"id="myImage1" src="redn.jpg" style="width:5px" width="3" height="100">
+<img style="position: absolute;left: 835px;top:412px;"id="myImage1" src="redn.jpg" style="width:5px" width="69" height="3">
+
+
+
+   <!--supply-->
+<p style="position: absolute;left: 150px; top:40px;"><b>V<sub>cc</sub>: +5V</b></p>
+<img style="position: absolute;left: 110px;top:90px;"id="myImage1" src="redn.jpg" style="width:5px" width="650" height="2">
+<img style="position: absolute;left: 348px;top:90px;"id="myImage1" src="redn.jpg" style="width:5px" width="2" height="35">
+<img style="position: absolute;left: 760px;top:90px;"id="myImage1" src="redn.jpg" style="width:5px" width="2" height="35">
+
+   <!--gRD-->
+<img style="position: absolute;left: 580px;top:350px;"id="myImage1" src="redn.jpg" style="width:5px" width="650" height="2">
+<img style="position: absolute;left: 580px;top:315px;"id="myImage1" src="redn.jpg" style="width:5px" width="2" height="35">
+<img style="position: absolute;left: 979px;top:315px;"id="myImage1" src="redn.jpg" style="width:5px" width="2" height="35">
+
+<!--Dots-->
+   <!--vcc-->
+<img style="position: absolute;left: 345px;top:87px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 757px;top:87px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<!--grd-->
+<img style="position: absolute;left: 578px;top:347px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 977px;top:347px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 1227px;top:347px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<!--J-->
+<img style="position: absolute;left: 345px;top:412px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 387px;top:76px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 425px;top:54px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 706px;top:54px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 683px;top:76px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 708px;top:320px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 768px;top:320px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 684px;top:339px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 834px;top:339px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 798px;top:370px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 938px;top:370px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<!--K-->
+<img style="position: absolute;left: 462px;top:496px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 426px;top:387px;"id="myImage1" src="red.png" style="width:5px" width="8" height="8">
+<img style="position: absolute;left: 937px;top:387px;"id="myImage1" src="red.png" style="width:5px" width="8" height="8">
+<img style="position: absolute;left: 545px;top:358px;"id="myImage1" src="red.png" style="width:5px" width="8" height="8">
+<img style="position: absolute;left: 869px;top:358px;"id="myImage1" src="red.png" style="width:5px" width="8" height="8">
+<img style="position: absolute;left: 902px;top:409px;"id="myImage1" src="red.png" style="width:5px" width="8" height="8">
+<img style="position: absolute;left: 832px;top:409px;"id="myImage1" src="red.png" style="width:5px" width="8" height="8">
+<!--CLK-->
+<img style="position: absolute;left: 384px;top:576px;"id="myImage1" src="red.png" style="width:5px" width="8" height="8">
+<img style="position: absolute;left: 498px;top:576px;"id="myImage1" src="red.png" style="width:5px" width="8" height="8">
+
+<!--label-->
+<p style="position: absolute;left:740px; top: 450px"><b>R1: 330ohm</b></p>
+<p style="position: absolute;left:740px; top: 470px"><b>LED 1</b></p>
+<p style="position: absolute;left:740px; top: 500px"><b>Q&#773;</b></p>
+
+<p style="position: absolute;left:990px; top: 450px"><b>R2: 330ohm</b></p>
+<p style="position: absolute;left:990px; top: 470px"><b>LED 2</b></p>
+<p style="position: absolute;left:990px; top: 500px"><b>Q</b></p>
+
+
+
+<p style="position: absolute; color:white; left:710px; top: 910px"><b>CLK=0</b></p>
+<p style="position: absolute;left:710px; color:white; top: 885px"><b>CLK=1</b></p>
+
+<p style="position: absolute;left:710px; color:white; top: 859px"><b>J=0</b></p>
+<p style="position: absolute;left:710px;color:white; top: 830px"><b>J=1</b></p>
+
+
+<p style="position: absolute;left:710px;color:white;  top: 800px"><b>K=0</b></p>
+<p style="position: absolute;left:710px; color:white; top: 772px"><b>K=1</b></p>
+
+<p style="position: absolute;left:710px; color:white; top: 746px"><b>Q=0</b></p>
+<p style="position: absolute;left:710px; color:white; top: 720px"><b>Q=1</b></p>
+
+<p style="position: absolute;left:710px; color:white; top: 694px"><b>Q&#773;=0</b></p>
+<p style="position: absolute;left:710px; color:white; top: 667px"><b>Q&#773;=1</b></p>
+
+
+
+
+
+
+
+
+   <div style="position:absolute;left:300px;top:100px;">
+
+        <img src="nand.png"  width="330" height="250"> 
+
+</div>
+<div style="position:absolute;left:700px;top:97px;">
+      
+        <img src="2nand.png"  width="350" height="250"> 
+</div>
+<div style="position:absolute;left:60px;top:44px;">
+      
+        <p style="color:blue;font-size: 11px;" align="center">SUPPLY</p>
+          <img id="m" onclick="changeImage5()" src="switchoff.png" width="70" height="40">
+</div>
+
+<div style="position:absolute;left:1219px;top:350px;">
+  <img src="grd.png"  width="25" height="50">
+       <p style="color:black;font-size: 15px;" align="center">GND</p>
+         
+</div>
+  
+<!--output 1-->
+    <div style="position:absolute;left:825px;top:432px;">
+        <p style="color:blue;font-size: 11px;" align="center"></p>
+          <img src="res1.png" width="20" height="60">
+    </div> 
+    <div style="position:absolute;left:830px;top:459px;">
+        <p style="color:blue;font-size: 11px;" align="center"></p>
+          <img id="out1" src="off.png" width="50" height="70">
+    </div>
+    <div style="position:absolute;left:820px;top:500px;">
+        <p style="color:blue;font-size: 11px;" align="center"></p>
+          <img src="grd.png" width="30" height="40">
+          <p style="color:black;font-size: 20px;" align="center"></p>
+    </div>
+    
+    <!--output 2-->
+    <div style="position:absolute;left:930px;top:432px;">
+        <p style="color:blue;font-size: 11px;" align="center"></p>
+          <img src="res1.png" width="20" height="60">
+    </div> 
+    <div style="position:absolute;left:935px;top:459px;">
+        <p style="color:blue;font-size: 11px;" align="center"></p>
+          <img id="out2" src="off.png" width="50" height="70">
+    </div>
+    <div style="position:absolute;left:927px;top:500px;">
+        <p style="color:blue;font-size: 11px;" align="center"></p>
+          <img src="grd.png" width="30" height="40">
+          <p style="color:black;font-size: 20px;" align="center"></p>
+    </div>
+
+<div style="position:absolute;left:764px;top:634px;">
+<button style="visibility:hidden;"onclick="pushdata();return false;"></button><br/>
+    <div id="l1" style="width:500px;height:350px"></div>
+    <table width="0%" border="0"> 
+      </table>
+</div>
+
+
+<script>
+
+function dropdown() 
+{
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+function changeImage5() 
+{
+    var image5 = document.getElementById("m");
+    if (image5.src.match("switchoff"))
+     {
+       
+       image5.src = "switchon.png";
+      Glow();
+      }
+       else{
+        image5.src = "switchoff.png";
+       document.getElementById("out1").src="off.png";
+       document.getElementById("out2").src="off.png";}
+}
+
+function changeImage4() 
+{   var image5 = document.getElementById("m");
+    var image4 = document.getElementById("p");
+     if(image5.src.match("switchon"))
+    {
+    if (image4.src.match("push1"))
+     {
+       
+       image4.src = "push2.png";
+       Glow();
+      
+      }
+      else
+       {
+
+        image4.src = "push1.png";
+        Glow();
+      
+       }
+     }
+      if(image5.src.match("switchoff"))
+      {
+        alert("On Power Supply");
+      }
+}
+function changeImage() 
+{   
+  var image5 = document.getElementById("m");
+    var image1 = document.getElementById("A");
+    if(image5.src.match("switchon"))
+    {
+    if (image1.src.match("switchoff"))
+     {
+       
+       image1.src = "switchon.png";  
+        Glow();
+      }
+      else
+        image1.src = "switchoff.png";
+        Glow();
+      }
+      if(image5.src.match("switchoff"))
+      {
+        alert("On Power Supply");
+      }
+
+}
+function changeImage1() 
+{  
+    var image5 = document.getElementById("m");
+    var image2 = document.getElementById("B");
+    if(image5.src.match("switchon"))
+    {
+    if (image2.src.match("switchoff"))
+     {
+       
+       image2.src = "switchon.png";
+        Glow();
+      }
+       else
+        image2.src = "switchoff.png";
+        Glow();
+}    if(image5.src.match("switchoff"))
+      {
+        alert("On Power Supply");
+      }
+    }
+               var a1=0;
+               var s;
+               var r;
+               var c;
+               var d;
+               var f;
+               
+               var datapoints1 = [];
+         var datapoints0 = [];
+        var datapoints2 = [];
+        var datapoints3 = [];
+        var datapoints4 = [];
+        function pushdata()
+        {
+          if(f==0)
+            datapoints0.push({x:a1,y:0},{x:a1+0.5,y:0},{x:a1+1,y:0});
+             else 
+           datapoints0.push({x:a1,y:1},{x:a1+0.5,y:0},{x:a1+1,y:0});
+              
+                datapoints1.push({x:a1,y:s+2});
+                datapoints2.push({x:a1,y:r+4});
+                datapoints3.push({x:a1,y:c+6});
+                datapoints4.push({x:a1,y:d+8});
+                a1++;
+
+                
+                datapoints1.push({x:a1,y:s+2});
+                datapoints2.push({x:a1,y:r+4});
+                datapoints3.push({x:a1,y:c+6});
+                datapoints4.push({x:a1,y:d+8});
+            show();
+        }
+
+        function show(){
+         
+          var  data1=[];
+              var  data0=[];  
+                   data1.push({
+                type: "stepLine",
+                xValueType: "Float",
+                showInLegend: false,
+                name: "f(x0)",
+                markerSize: 1,
+                dataPoints: datapoints0
+            })
+
+            data1.push({
+                type: "line",
+                xValueType: "Float",
+                showInLegend: false,
+                name: "f(x1)",
+                markerSize: 1,
+                dataPoints: datapoints1
+            })
+
+           
+                                
+            data1.push({
+                type: "line",
+                xValueType: "Float",
+                showInLegend: false,
+                name: "f(x1)",
+                markerSize: 1,
+                dataPoints: datapoints1
+            })
+            
+            var data2 = [];
+                                
+            data1.push({
+                type: "line",
+                xValueType: "Float",
+                showInLegend: false,
+                name: "f(x2)",
+                markerSize: 1,
+                dataPoints: datapoints2
+            })
+
+            var data3 = [];
+                                
+            data1.push({
+                type: "line",
+                xValueType: "Float",
+                showInLegend: false,
+                name: "f(x3)",
+                markerSize: 1,
+                dataPoints: datapoints3
+            })
+            var data4 = [];
+                                
+            data1.push({
+                type: "line",
+                xValueType: "Float",
+                showInLegend: false,
+                name: "f(x4)",
+                markerSize: 1,
+                dataPoints: datapoints4
+            })
+    
+            graphline("l1", data1, "x axis", "y-axis");
+        }
+
+
+
+function Glow()
+{   
+
+
+  var image4 = document.getElementById("p");
+    var e = document.getElementById("A");
+    var f = document.getElementById("B");
+  if(e.src.match("switchoff")&& f.src.match("switchoff")&&(image4.src.match("push1")))
+    {
+       document.getElementById("out1").src="on.png";
+       document.getElementById("out2").src="off.png";     
+    }
+
+    if(e.src.match("switchoff")&& f.src.match("switchoff")&& image4.src.match("push2"))
+    { 
+      if((out1.src.match("on")) &&(out2.src.match("off")))
+       {
+       document.getElementById("out1").src="on.png";
+       document.getElementById("out2").src="off.png";
+       }
+
+       if((out1.src.match("off")) &&(out2.src.match("on")))
+       {
+        document.getElementById("out1").src="off.png";
+        document.getElementById("out2").src="on.png";
+      }
+
+       else
+        {
+       document.getElementById("out1").src="on.png";
+       document.getElementById("out2").src="off.png";}
+      }
+
+    if(e.src.match("switchoff")&& f.src.match("switchon")&&(image4.src.match("push2")))
+      {document.getElementById("out1").src="on.png";
+       document.getElementById("out2").src="off.png";}
+
+    if(e.src.match("switchon")&& f.src.match("switchoff")&&(image4.src.match("push2")))
+      {document.getElementById("out1").src="off.png";
+       document.getElementById("out2").src="on.png";}
+
+      if(e.src.match("switchon")&& f.src.match("switchon")&& image4.src.match("push2"))
+        {
+          if(c==undefined&&d==undefined)
+          {if((out1.src.match("on")) &&(out2.src.match("off")))
+       {
+       document.getElementById("out1").src="off.png";
+       document.getElementById("out2").src="on.png";
+       }
+       else if((out1.src.match("off")) &&(out2.src.match("on")))
+       {
+       document.getElementById("out1").src="on.png";
+       document.getElementById("out2").src="off.png";
+       }
+
+          }
+          else if(c==1&&d==0)
+          {
+            document.getElementById("out1").src="on.png";
+       document.getElementById("out2").src="off.png";
+
+          }
+          else if(c==0&&d==1)
+          {
+            document.getElementById("out1").src="off.png";
+       document.getElementById("out2").src="on.png";
+
+
+          }
+
+         
+
+    }
+ }
+
+var n=1;
+var k;
+var z;
+var q;
+var qbar;
+
+
+var c;
+var d;
+
+
+function add()
+{
+  var image5 = document.getElementById("m");
+  if (image5.src.match("switchon"))
+    {
+   
+    var image1 = document.getElementById("A");
+    var image2 = document.getElementById("B");
+     var image4 = document.getElementById("p");
+         var a=document.getElementById("out1");
+    var b=document.getElementById("out2");
+    var h=document.getElementById("out1").value;
+    var i=document.getElementById("out2").value;
+    
+    if (image1.src.match("switchoff") && image2.src.match("switchoff")&&image4.src.match("push1"))
+    {
+        f=0;
+        g=0;
+        h=0;
+        y="No Change";
+        if(c==undefined&&d==undefined)
+        {k=0;
+        z=1;
+        
+     i="X";
+     j="X";
+
+        }
+        else
+        {
+          i=c;
+          j=d;
+          k=i;
+          z=j;
+
+        }
+     
+        
+
+
+      } 
+
+ if (image1.src.match("switchoff") && image2.src.match("switchon")&&image4.src.match("push1"))
+    {
+       alert('Apply the clock');
+       exit();
+      } 
+ if (image1.src.match("switchon") && image2.src.match("switchoff")&&image4.src.match("push1"))
+    {
+       alert('Apply the clock');
+       exit();
+      } 
+if (image1.src.match("switchoff") && image2.src.match("switchon")&&image4.src.match("push2"))
+    {
+      if(c==undefined&&d==undefined)
+         {
+         f=1;
+        g=1;h=0;k=0;z=1;
+        y="Reset"
+           i=0;
+           j=1;
+
+         }
+
+
+
+
+      
+           else
+            {
+      f=1;
+        g=0;h=1;k=0;
+      z=1;
+      y="Reset"
+           i=c;
+             j=d;
+           }
+
+          
+      }  
+      
+if (image1.src.match("switchon") && image2.src.match("switchoff")&&image4.src.match("push2"))
+    {
+     if(c==undefined&&d==undefined)
+         {
+         f=1;
+        g=1;h=0;k=1;z=0;
+        y="set"
+           i=0;
+           j=1;
+
+         }       
+         else
+         {
+          f=1;
+        g=1;h=0;k=1;z=0;
+        y="set"
+           i=c;
+           j=d;
+
+         }
+}
+
+           
+      
+         
+      
+if (image1.src.match("switchon") && image2.src.match("switchon")&&image4.src.match("push2"))
+    {
+      f=1;
+        g=1;h=1;
+        y="toggle";
+        if(c==undefined&&d==undefined)
+        {
+          i=0;
+          j=1;
+          k=1;
+          z=0;
+
+        }
+        else
+
+        {
+     
+      i=c;
+      j=d;
+      k=j;
+      z=i;
+    }
+    
+    }
+
+    if (image1.src.match("switchon") && image2.src.match("switchon")&&image4.src.match("push1"))
+    {
+      alert('Apply the clock');
+       exit();
+    }
+           
+
+    if (image1.src.match("switchoff") && image2.src.match("switchoff")&&image4.src.match("push2"))
+    {
+     if(c==undefined&&d==undefined)
+         {
+         f=1;
+        g=0;h=0;k=0;z=1;
+        y="No change"
+           i=0;
+           j=1;
+
+         }
+
+
+
+
+
+      else  if(s==1&&r==1)
+      {
+      f=1;
+        g=0;h=0;
+        y="No change"
+
+           i=q;j=qbar;
+           k=i;
+           z=j;
+         }
+         else
+         {
+      f=1;
+        g=0;h=0;
+        y="No change"
+
+           i=c;j=d;
+           k=i;
+           z=j;
+         }
+
+          
+       
+      }
+
+
+
+
+
+
+
+
+
+              c=k;
+              d=z;
+              s=g;
+              r=h;
+              q=i;
+              qbar=j;
+
+
+
+
+
+
+
+    
+                    var table = document.getElementById("mytable");
+                    // Create an empty <tr> element and add it to the 1st position of the table:
+                    var row = table.insertRow(-1);
+                    // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    var cell4 = row.insertCell(3);
+                    var cell5 = row.insertCell(4);
+                    var cell6 = row.insertCell(5);
+                    var cell7 = row.insertCell(6);
+                    var cell8 = row.insertCell(7);
+                    var cell9 = row.insertCell(8);
+                    
+
+
+
+                    cell1.innerHTML = n++;
+                    cell2.innerHTML = f;
+                    cell3.innerHTML = g;
+                    cell4.innerHTML = h;
+                    cell5.innerHTML = i;
+                    cell6.innerHTML = j;
+                    cell7.innerHTML = k;
+                    cell8.innerHTML = z;
+                    cell9.innerHTML = y;
+
+     document.getElementById("A").src="switchoff.png";
+     document.getElementById("B").src="switchoff.png";
+      document.getElementById("p").src="push1.png";
+      pushdata();
+}
+else
+alert('On the Power Supply')
+}
+
+
+  
+</script>
+</div>
+</div>
+</form>
+</body>
+</html>
